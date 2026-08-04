@@ -75,8 +75,8 @@ try {
 
   const artifactManifest = {
     version: core.version,
-    core: `release-artifacts/${basename(packedCore.tarball)}`,
-    react: `release-artifacts/${basename(packedReact.tarball)}`,
+    core: `./release-artifacts/${basename(packedCore.tarball)}`,
+    react: `./release-artifacts/${basename(packedReact.tarball)}`,
   };
   writeFileSync(
     resolve(artifactDir, 'manifest.json'),

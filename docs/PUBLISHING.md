@@ -40,8 +40,8 @@ npm whoami
 Confirm that `npm whoami` prints `hafbit`, then publish Core before React:
 
 ```bash
-npm publish release-artifacts/hafbit-acp-components-core-0.1.0-alpha.0.tgz --access public --tag alpha
-npm publish release-artifacts/hafbit-acp-components-react-0.1.0-alpha.0.tgz --access public --tag alpha
+npm publish ./release-artifacts/hafbit-acp-components-core-0.1.0-alpha.0.tgz --access public --tag alpha
+npm publish ./release-artifacts/hafbit-acp-components-react-0.1.0-alpha.0.tgz --access public --tag alpha
 ```
 
 For each package, open its npm package settings and add a GitHub Actions

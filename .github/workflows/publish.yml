@@ -87,6 +87,8 @@ jobs:
             package_name="$1"
             tarball="$2"
 
+            test -f "$tarball"
+
             if published_version="$(npm view "${package_name}@${VERSION}" version 2>/dev/null)"; then
               test "$published_version" = "$VERSION"
               tagged_version="$(npm view "$package_name" "dist-tags.${DIST_TAG}")"
