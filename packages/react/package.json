@@ -1,6 +1,6 @@
 {
   "name": "@hafbit/acp-components-react",
-  "version": "0.1.0-alpha.2",
+  "version": "0.1.0-alpha.3",
   "description": "React UI components for the Agent Client Protocol — chat, file tree, diff viewer, dialogs, and a composable workbench shell.",
   "keywords": [
     "agent-client-protocol",

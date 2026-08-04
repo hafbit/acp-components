@@ -1,6 +1,6 @@
 {
   "name": "@hafbit/acp-components-core",
-  "version": "0.1.0-alpha.2",
+  "version": "0.1.0-alpha.3",
   "description": "Framework-agnostic core for the Agent Client Protocol — multi-agent provider, per-session stores, transports, and imperative actions.",
   "keywords": [
     "agent-client-protocol",
