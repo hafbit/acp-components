@@ -18,8 +18,9 @@ export default defineConfig({
     rollupOptions: {
       external: [
         'react',
+        /^react\//,
         'react-dom',
-        'react/jsx-runtime',
+        /^react-dom\//,
         'zustand',
         'zustand/react',
         '@hafbit/acp-components-core',

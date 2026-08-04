@@ -142,7 +142,7 @@ jobs:
           npm install --ignore-scripts \
             "@hafbit/acp-components-core@${VERSION}" \
             "@hafbit/acp-components-react@${VERSION}" \
-            monaco-editor@^0.52 react@^19 react-dom@^19 typescript@^5.6
+            monaco-editor@^0.52 react@19.2.5 react-dom@19.2.5 typescript@^5.6
 
           node --input-type=module --eval "await import('@hafbit/acp-components-core'); await import('@hafbit/acp-components-react'); import.meta.resolve('@hafbit/acp-components-react/styles.css')"
           node --eval "require('@hafbit/acp-components-core'); require('@hafbit/acp-components-react')"
