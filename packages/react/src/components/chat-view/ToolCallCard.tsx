@@ -12,8 +12,8 @@ import {
   ToolOutlined,
   RightOutlined,
 } from '@ant-design/icons';
-import type { ToolCallState, SessionId } from '@acp-components/core';
-import type { ToolCallLocation } from '@acp-components/core';
+import type { ToolCallState, SessionId } from '@hafbit/acp-components-core';
+import type { ToolCallLocation } from '@hafbit/acp-components-core';
 import { DiffView } from '../diff-view';
 import styles from './tool-call.module.scss';
 

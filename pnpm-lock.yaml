@@ -26,10 +26,10 @@ importers:
 
   examples/demo:
     dependencies:
-      '@acp-components/core':
+      '@hafbit/acp-components-core':
         specifier: workspace:*
         version: link:../../packages/core
-      '@acp-components/react':
+      '@hafbit/acp-components-react':
         specifier: workspace:*
         version: link:../../packages/react
       '@agentclientprotocol/sdk':
@@ -82,10 +82,10 @@ importers:
 
   examples/tauri:
     dependencies:
-      '@acp-components/core':
+      '@hafbit/acp-components-core':
         specifier: workspace:*
         version: link:../../packages/core
-      '@acp-components/react':
+      '@hafbit/acp-components-react':
         specifier: workspace:*
         version: link:../../packages/react
       '@tauri-apps/api':
@@ -147,7 +147,7 @@ importers:
 
   packages/react:
     dependencies:
-      '@acp-components/core':
+      '@hafbit/acp-components-core':
         specifier: workspace:*
         version: link:../core
       '@ant-design/icons':

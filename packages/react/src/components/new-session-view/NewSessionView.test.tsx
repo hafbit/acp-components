@@ -1,8 +1,8 @@
 import React from 'react';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { acpStore } from '@acp-components/core';
-import type { AcpClient, AgentConnection } from '@acp-components/core';
+import { acpStore } from '@hafbit/acp-components-core';
+import type { AcpClient, AgentConnection } from '@hafbit/acp-components-core';
 import { AcpContext } from '../../context/AcpContext';
 import type { AcpContextValue } from '../../context/AcpContext';
 import { NewSessionView } from './NewSessionView';

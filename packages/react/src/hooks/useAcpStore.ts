@@ -1,5 +1,5 @@
 import { useStore } from 'zustand/react';
-import { acpStore } from '@acp-components/core';
+import { acpStore } from '@hafbit/acp-components-core';
 
 type AcpStoreState = ReturnType<typeof acpStore.getState>;
 

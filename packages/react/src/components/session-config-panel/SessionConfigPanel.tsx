@@ -1,7 +1,7 @@
 import { useSessionConfigOptions } from '../../hooks/useSession';
 import { useAcpContext } from '../../context/AcpContext';
-import { setSessionConfigOption, acpStore } from '@acp-components/core';
-import type { SessionId, SessionConfigOption, SessionConfigSelectOptions, SessionConfigSelectGroup } from '@acp-components/core';
+import { setSessionConfigOption, acpStore } from '@hafbit/acp-components-core';
+import type { SessionId, SessionConfigOption, SessionConfigSelectOptions, SessionConfigSelectGroup } from '@hafbit/acp-components-core';
 import { Select } from '../select';
 import type { SelectOption, SelectOptionGroup } from '../select';
 import styles from './session-config-panel.module.scss';

@@ -2,7 +2,7 @@ import { readdir, stat, readFile } from 'node:fs/promises';
 import { join, dirname } from 'node:path';
 import chokidar from 'chokidar';
 
-// Local type definition — server should not depend on @acp-components/core
+// Local type definition — server should not depend on @hafbit/acp-components-core
 interface FileTreeNode {
   name: string;
   path: string;

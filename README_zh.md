@@ -4,12 +4,12 @@
 
 用于构建 [Agent Client Protocol (ACP)](https://agentclientprotocol.com/) 客户端的生产级 React 组件库与框架无关核心。
 
-[![CI](https://github.com/zvzuola/acp-components/actions/workflows/ci.yml/badge.svg)](https://github.com/zvzuola/acp-components/actions/workflows/ci.yml)
-[![npm core](https://img.shields.io/npm/v/@acp-components/core?label=core)](https://www.npmjs.com/package/@acp-components/core)
-[![npm react](https://img.shields.io/npm/v/@acp-components/react?label=react)](https://www.npmjs.com/package/@acp-components/react)
+[![CI](https://github.com/hafbit/acp-components/actions/workflows/ci.yml/badge.svg)](https://github.com/hafbit/acp-components/actions/workflows/ci.yml)
+[![npm core](https://img.shields.io/npm/v/@hafbit/acp-components-core?label=core)](https://www.npmjs.com/package/@hafbit/acp-components-core)
+[![npm react](https://img.shields.io/npm/v/@hafbit/acp-components-react?label=react)](https://www.npmjs.com/package/@hafbit/acp-components-react)
 [![license](https://img.shields.io/github/license/zvzuola/acp-components)](LICENSE)
 
-**[在线体验](https://zvzuola.github.io/acp-components/)** · **[快速开始](#快速开始)** · **[架构设计](docs/ARCHITECTURE.md)** · **[English](README.md)**
+**[在线体验](https://hafbit.github.io/acp-components/)** · **[快速开始](#快速开始)** · **[架构设计](docs/ARCHITECTURE.md)** · **[English](README.md)**
 
 ![支持多 Agent 与多会话的 ACP 工作台](assets/screenshot-web.png)
 
@@ -17,7 +17,7 @@
 
 - **完整工作台** — 从 `WorkbenchShell` 开始使用，并可随着产品演进替换或扩展任意视图。
 - **真实 ACP 生命周期** — 通过同一个类型安全的数据层处理会话、流式更新、工具调用、权限、认证和用量。
-- **宿主与框架解耦** — React UI 可运行于 Web 和 Tauri；`@acp-components/core` 也可配合 Vue、Svelte、Solid 或原生 TypeScript 使用。
+- **宿主与框架解耦** — React UI 可运行于 Web 和 Tauri；`@hafbit/acp-components-core` 也可配合 Vue、Svelte、Solid 或原生 TypeScript 使用。
 
 使用默认的本地 ACP Agent 运行交互 Demo：
 
@@ -59,13 +59,13 @@ pnpm dev:all
 
 | 包 | 说明 |
 |---------|-------------|
-| [@acp-components/core](packages/core) | 框架无关：多 Agent 传输层、AcpClient、vanilla Zustand stores（工作区 + Agent + 会话 + 文件树 + 文件查看器 + 技能）、命令式 actions |
-| [@acp-components/react](packages/react) | React 绑定：Context Providers（`AcpContext` / `Platform` / `Settings` / `I18n`）、Hooks（useSyncExternalStore）、25+ UI 组件 |
+| [@hafbit/acp-components-core](packages/core) | 框架无关：多 Agent 传输层、AcpClient、vanilla Zustand stores（工作区 + Agent + 会话 + 文件树 + 文件查看器 + 技能）、命令式 actions |
+| [@hafbit/acp-components-react](packages/react) | React 绑定：Context Providers（`AcpContext` / `Platform` / `Settings` / `I18n`）、Hooks（useSyncExternalStore）、25+ UI 组件 |
 
 ## 安装
 
 ```bash
-pnpm add @acp-components/core @acp-components/react
+pnpm add @hafbit/acp-components-core @hafbit/acp-components-react
 ```
 
 **Peer 依赖**：`react`（^18 || ^19）、`react-dom`（^18 || ^19）。`monaco-editor` 为可选 peer 依赖——仅在使用内置 `FileViewer` 时需要。
@@ -84,7 +84,7 @@ import {
   PermissionPrompt,
   LoginDialog,
   useAcpStore,
-} from '@acp-components/react';
+} from '@hafbit/acp-components-react';
 // createWebPlatform 是宿主侧工厂；demo 内置实现见
 // examples/demo/src/webPlatform.ts。自定义宿主请自行实现。
 import { createWebPlatform } from './webPlatform';
@@ -279,7 +279,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(<App />);
 ```
 
 ```tsx
-import { useSettings } from '@acp-components/react';
+import { useSettings } from '@hafbit/acp-components-react';
 
 // 在 <AcpProvider> 内部渲染的组件中
 const { theme, setTheme } = useSettings();
@@ -291,7 +291,7 @@ setTheme('my-theme');
 基于 i18next 的内置国际化。语言从宿主 `Platform.system.getLocale()` 自动检测（Web：`navigator.language`；桌面：系统语言），可被 `localStorage` 覆盖，默认 `en-US`。
 
 ```tsx
-import { I18nProvider } from '@acp-components/react';
+import { I18nProvider } from '@hafbit/acp-components-react';
 
 <I18nProvider
   defaultLocale="zh-CN"
@@ -315,7 +315,7 @@ i18n.changeLanguage('zh-CN'); // 切换为中文
 
 ## Platform
 
-`Platform`（定义于 `@acp-components/react`，并从该包重新导出）是环境无关的宿主原生能力契约，与 `AcpContext` **正交**。UI 组件通过 `usePlatform()` 使用它，且绝不直接触碰宿主原生 API（`window.prompt`、`localStorage`、`@tauri-apps/plugin-*` 等）。每个宿主提供自己的实现——参考工厂：`createWebPlatform()`（`examples/demo/src/webPlatform.ts`）与 `createTauriPlatform()`（`examples/tauri/src/tauriPlatform.ts`）。
+`Platform`（定义于 `@hafbit/acp-components-react`，并从该包重新导出）是环境无关的宿主原生能力契约，与 `AcpContext` **正交**。UI 组件通过 `usePlatform()` 使用它，且绝不直接触碰宿主原生 API（`window.prompt`、`localStorage`、`@tauri-apps/plugin-*` 等）。每个宿主提供自己的实现——参考工厂：`createWebPlatform()`（`examples/demo/src/webPlatform.ts`）与 `createTauriPlatform()`（`examples/tauri/src/tauriPlatform.ts`）。
 
 能力以 slice / 方法是否存在来表达——调用方用 `?.` 守卫：
 
@@ -336,10 +336,10 @@ i18n.changeLanguage('zh-CN'); // 切换为中文
 
 ## 框架无关使用方式
 
-`@acp-components/core` 包零 React 依赖，可用于任何框架：
+`@hafbit/acp-components-core` 包零 React 依赖，可用于任何框架：
 
 ```ts
-import { acpStore, sessionStore, fileTreeStore, fileViewerStore, skillStore, createAcpProvider, sendPrompt } from '@acp-components/core';
+import { acpStore, sessionStore, fileTreeStore, fileViewerStore, skillStore, createAcpProvider, sendPrompt } from '@hafbit/acp-components-core';
 
 // 1. 创建多 Agent provider。`stdioFactory` 是宿主的启动能力
 //    （如子进程传输）。无法启动进程的宿主传 `null`。
@@ -382,8 +382,8 @@ provider.destroy();
 
 ### 环境要求
 
-- Node.js >= 18
-- pnpm
+- Node.js >= 22
+- pnpm 11
 - 一个兼容 ACP 的 Agent（如 [opencode](https://github.com/anthropics/opencode) 的 `acp` 子命令）
 
 ### 初始化
@@ -405,6 +405,13 @@ pnpm test
 # Lint
 pnpm lint
 ```
+
+### 发布
+
+`latest` 是 fork 的长期发布分支。版本 tag 会自动发布两个包并映射 npm
+dist-tag：`vX.Y.Z-alpha.N` 对应 `alpha`，`vX.Y.Z-beta.N` 对应 `beta`，
+`vX.Y.Z` 对应 `latest`。首次 npm 配置与日常发布命令见
+[发布指南](docs/PUBLISHING.md)。
 
 ### Web 演示
 
@@ -456,7 +463,7 @@ pnpm build:tauri    # 生产构建
 实现 `AcpTransport` 接口即可接入任意通信层：
 
 ```ts
-import type { AcpTransport, Stream } from '@acp-components/core';
+import type { AcpTransport, Stream } from '@hafbit/acp-components-core';
 
 class MyCustomTransport implements AcpTransport {
   async connect(): Promise<Stream> { /* ... */ }

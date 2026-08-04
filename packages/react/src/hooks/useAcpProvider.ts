@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
 import { useStore } from 'zustand/react';
 import { useShallow } from 'zustand/shallow';
-import { createAcpProvider, acpStore } from '@acp-components/core';
-import type { MultiAgentProviderOptions, MultiAgentProviderInstance, AgentConfig, StdioTransportFactory } from '@acp-components/core';
+import { createAcpProvider, acpStore } from '@hafbit/acp-components-core';
+import type { MultiAgentProviderOptions, MultiAgentProviderInstance, AgentConfig, StdioTransportFactory } from '@hafbit/acp-components-core';
 import { usePlatform } from '../context/PlatformContext';
 
 export function useAcpProvider(options: MultiAgentProviderOptions) {

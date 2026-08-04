@@ -1,4 +1,4 @@
-import type { AgentConfig, PlatformStorage } from '@acp-components/core';
+import type { AgentConfig, PlatformStorage } from '@hafbit/acp-components-core';
 
 /**
  * Persistence for the agent **configuration** list (not runtime connection

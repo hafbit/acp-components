@@ -1,8 +1,8 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { render, screen, act } from '@testing-library/react';
 import React from 'react';
-import { acpStore } from '@acp-components/core';
-import type { SessionId, SessionMeta, AcpClient } from '@acp-components/core';
+import { acpStore } from '@hafbit/acp-components-core';
+import type { SessionId, SessionMeta, AcpClient } from '@hafbit/acp-components-core';
 import { SESSION_DRAG_MIME } from '../../constants';
 import { AcpContext } from '../../context/AcpContext';
 import type { AcpContextValue } from '../../context/AcpContext';
@@ -24,7 +24,7 @@ vi.mock('../chat-view/ChatView', () => ({
 const { selectSessionSpy } = vi.hoisted(() => ({
   selectSessionSpy: vi.fn(() => { }),
 }));
-vi.mock('@acp-components/core', async (importActual) => {
+vi.mock('@hafbit/acp-components-core', async (importActual) => {
   const actual = await importActual();
   return { ...actual, selectSession: selectSessionSpy };
 });

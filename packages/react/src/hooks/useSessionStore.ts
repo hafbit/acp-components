@@ -1,5 +1,5 @@
 import { useStore } from 'zustand/react';
-import { sessionStore } from '@acp-components/core';
+import { sessionStore } from '@hafbit/acp-components-core';
 
 type SessionStoreState = ReturnType<typeof sessionStore.getState>;
 

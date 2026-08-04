@@ -7,3 +7,5 @@ examples/tauri/src-tauri/target
 .bitfun/
 .claude
 .agents
+.pnpm-store
+release-artifacts

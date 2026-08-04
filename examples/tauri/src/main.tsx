@@ -36,10 +36,10 @@ self.MonacoEnvironment = {
   },
 };
 
-import { AcpApp } from '@acp-components/react';
-import { WorkbenchShell } from '@acp-components/react';
-import { LoginDialog } from '@acp-components/react';
-import { useAcpStore } from '@acp-components/react';
+import { AcpApp } from '@hafbit/acp-components-react';
+import { WorkbenchShell } from '@hafbit/acp-components-react';
+import { LoginDialog } from '@hafbit/acp-components-react';
+import { useAcpStore } from '@hafbit/acp-components-react';
 import { createTauriPlatform } from './tauriPlatform';
 import { TitleBar } from './TitleBar';
 import styles from './app.module.scss';

@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import type { PlatformStorage, SessionId } from '@acp-components/core';
+import type { PlatformStorage, SessionId } from '@hafbit/acp-components-core';
 import { usePlatform } from '../context/PlatformContext';
 
 const DRAFTS_KEY = 'composer-drafts';

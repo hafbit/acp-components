@@ -5,8 +5,8 @@ import {
   clearSkills as coreClearSkills,
   setAgentSkills as coreSetAgentSkills,
   removeAgentSkills as coreRemoveAgentSkills,
-} from '@acp-components/core';
-import type { Skill } from '@acp-components/core';
+} from '@hafbit/acp-components-core';
+import type { Skill } from '@hafbit/acp-components-core';
 
 export type { Skill };
 
@@ -35,7 +35,7 @@ type SkillStoreState = ReturnType<typeof skillStore.getState>;
 
 /**
  * Subscribe to the global skill store (backed by `skillStore` in
- * `@acp-components/core`). State is shared across every component that calls
+ * `@hafbit/acp-components-core`). State is shared across every component that calls
  * this hook — no props threading required. The per-agent catalog is populated
  * by the React layer from `AcpClient.listSkills()` (see `SkillView`).
  */

@@ -1,5 +1,5 @@
 import { createContext, useContext } from 'react';
-import type { AcpClient, AgentConfig, AgentConnection } from '@acp-components/core';
+import type { AcpClient, AgentConfig, AgentConnection } from '@hafbit/acp-components-core';
 
 /**
  * Agent data-layer context: connection / session state for the configured

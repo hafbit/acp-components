@@ -2,9 +2,9 @@ import type {
   Platform,
   PlatformStorage,
   FileTreeNode,
-} from '@acp-components/react';
-import type { MenuAction } from '@acp-components/react';
-import type { StdioTransportOptions, AcpTransport } from '@acp-components/core';
+} from '@hafbit/acp-components-react';
+import type { MenuAction } from '@hafbit/acp-components-react';
+import type { StdioTransportOptions, AcpTransport } from '@hafbit/acp-components-core';
 import { TauriIpcTransport } from './tauriIpcTransport';
 
 // ---------------------------------------------------------------------------

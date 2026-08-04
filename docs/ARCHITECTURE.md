@@ -16,8 +16,8 @@
 
 ```mermaid
 flowchart TB
-  Host["宿主应用<br/>Web / Desktop / IDE"] --> React["@acp-components/react<br/>Provider / Hooks / Components"]
-  React --> Core["@acp-components/core<br/>Multi-Agent Provider / Client / Stores / Actions"]
+  Host["宿主应用<br/>Web / Desktop / IDE"] --> React["@hafbit/acp-components-react<br/>Provider / Hooks / Components"]
+  React --> Core["@hafbit/acp-components-core<br/>Multi-Agent Provider / Client / Stores / Actions"]
   Core --> SDK["@agentclientprotocol/sdk"]
   Core --> Transport["AcpTransport × N<br/>每位 Agent 独立配置<br/>stdio / websocket / http / custom"]
   Transport --> Agent1["ACP Agent runtime 1"]
@@ -30,8 +30,8 @@ flowchart TB
 | 层级 | 主要职责 |
 | --- | --- |
 | 宿主应用 | 配置 Agent 列表、选择传输、提供文件能力、制定权限策略、组合布局 |
-| `@acp-components/react` | React Provider、hooks、聊天/会话/权限/diff/状态组件、主题和 i18n |
-| `@acp-components/core` | 多 Agent provider、ACP client（每 Agent 一实例）、transport 抽象、store、actions、session update 分发 |
+| `@hafbit/acp-components-react` | React Provider、hooks、聊天/会话/权限/diff/状态组件、主题和 i18n |
+| `@hafbit/acp-components-core` | 多 Agent provider、ACP client（每 Agent 一实例）、transport 抽象、store、actions、session update 分发 |
 | ACP SDK | 协议类型、握手和连接 |
 | Agent runtime | 推理、工具调用、session update |
 
@@ -132,7 +132,7 @@ Agent 推送的 `sessionUpdate` 统一在 core provider 层转换为 store actio
 
 ## 5. UI层设计
 
-`@acp-components/react` 提供的 UI 大致分三层：
+`@hafbit/acp-components-react` 提供的 UI 大致分三层：
 
 | 层级 | 内容 | 说明 |
 | --- | --- | --- |

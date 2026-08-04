@@ -2,12 +2,12 @@
 
 Production-ready React components and a framework-agnostic core for building [Agent Client Protocol (ACP)](https://agentclientprotocol.com/) clients.
 
-[![CI](https://github.com/zvzuola/acp-components/actions/workflows/ci.yml/badge.svg)](https://github.com/zvzuola/acp-components/actions/workflows/ci.yml)
-[![npm core](https://img.shields.io/npm/v/@acp-components/core?label=core)](https://www.npmjs.com/package/@acp-components/core)
-[![npm react](https://img.shields.io/npm/v/@acp-components/react?label=react)](https://www.npmjs.com/package/@acp-components/react)
+[![CI](https://github.com/hafbit/acp-components/actions/workflows/ci.yml/badge.svg)](https://github.com/hafbit/acp-components/actions/workflows/ci.yml)
+[![npm core](https://img.shields.io/npm/v/@hafbit/acp-components-core?label=core)](https://www.npmjs.com/package/@hafbit/acp-components-core)
+[![npm react](https://img.shields.io/npm/v/@hafbit/acp-components-react?label=react)](https://www.npmjs.com/package/@hafbit/acp-components-react)
 [![license](https://img.shields.io/github/license/zvzuola/acp-components)](LICENSE)
 
-**[Try the live demo](https://zvzuola.github.io/acp-components/)** · **[Quick start](#quick-start)** · **[Architecture](docs/ARCHITECTURE.md)** · **[中文](README_zh.md)**
+**[Try the live demo](https://hafbit.github.io/acp-components/)** · **[Quick start](#quick-start)** · **[Architecture](docs/ARCHITECTURE.md)** · **[中文](README_zh.md)**
 
 ![ACP workbench with multiple agent sessions](assets/screenshot-web.png)
 
@@ -15,7 +15,7 @@ Build a complete agent workbench instead of assembling another chat box. The lib
 
 - **Complete workbench** — Start with `WorkbenchShell`, then replace or extend individual views as your product grows.
 - **Real ACP lifecycle** — Handle sessions, streaming updates, tool calls, permissions, authentication, and usage through one typed data layer.
-- **Host and framework independent** — Use the React UI on the web or in Tauri, or use `@acp-components/core` with Vue, Svelte, Solid, or vanilla TypeScript.
+- **Host and framework independent** — Use the React UI on the web or in Tauri, or use `@hafbit/acp-components-core` with Vue, Svelte, Solid, or vanilla TypeScript.
 
 Run the interactive browser demo with the default local ACP agent:
 
@@ -57,13 +57,13 @@ Open `http://localhost:5173`. This starts both the WebSocket bridge and the Vite
 
 | Package | Description |
 |---------|-------------|
-| [@acp-components/core](packages/core) | Framework-agnostic: multi-agent transport layer, AcpClient, vanilla Zustand stores (workspace + agent + session + file-tree + file-viewer + skill), and imperative actions |
-| [@acp-components/react](packages/react) | React bindings: context providers (`AcpContext` / `Platform` / `Settings` / `I18n`), hooks (useSyncExternalStore), and 25+ UI components |
+| [@hafbit/acp-components-core](packages/core) | Framework-agnostic: multi-agent transport layer, AcpClient, vanilla Zustand stores (workspace + agent + session + file-tree + file-viewer + skill), and imperative actions |
+| [@hafbit/acp-components-react](packages/react) | React bindings: context providers (`AcpContext` / `Platform` / `Settings` / `I18n`), hooks (useSyncExternalStore), and 25+ UI components |
 
 ## Installation
 
 ```bash
-pnpm add @acp-components/core @acp-components/react
+pnpm add @hafbit/acp-components-core @hafbit/acp-components-react
 ```
 
 **Peer dependencies**: `react` (^18 || ^19), `react-dom` (^18 || ^19). `monaco-editor` is an optional peer dependency — only required if you use the built-in `FileViewer`.
@@ -82,7 +82,7 @@ import {
   PermissionPrompt,
   LoginDialog,
   useAcpStore,
-} from '@acp-components/react';
+} from '@hafbit/acp-components-react';
 // createWebPlatform is a host-side factory; the demo ships one in
 // examples/demo/src/webPlatform.ts. Implement your own for a custom host.
 import { createWebPlatform } from './webPlatform';
@@ -277,7 +277,7 @@ Create custom themes by overriding the variables:
 ```
 
 ```tsx
-import { useSettings } from '@acp-components/react';
+import { useSettings } from '@hafbit/acp-components-react';
 
 // in a component rendered inside <AcpProvider>
 const { theme, setTheme } = useSettings();
@@ -289,7 +289,7 @@ setTheme('my-theme');
 Built-in i18n via i18next. Locale is auto-detected from the host `Platform.system.getLocale()` (web: `navigator.language`; desktop: OS locale) with a `localStorage` override fallback, defaulting to `en-US`.
 
 ```tsx
-import { I18nProvider } from '@acp-components/react';
+import { I18nProvider } from '@hafbit/acp-components-react';
 
 <I18nProvider
   defaultLocale="zh-CN"
@@ -313,7 +313,7 @@ i18n.changeLanguage('zh-CN'); // switch to Chinese
 
 ## Platform
 
-`Platform` (defined in `@acp-components/react`, re-exported from the package) is an environment-agnostic native-capability contract, **orthogonal** to `AcpContext`. UI components consume it via `usePlatform()` and never touch host-native APIs (`window.prompt`, `localStorage`, `@tauri-apps/plugin-*`, …) directly. Each host provides its own implementation — reference factories: `createWebPlatform()` (`examples/demo/src/webPlatform.ts`) and `createTauriPlatform()` (`examples/tauri/src/tauriPlatform.ts`).
+`Platform` (defined in `@hafbit/acp-components-react`, re-exported from the package) is an environment-agnostic native-capability contract, **orthogonal** to `AcpContext`. UI components consume it via `usePlatform()` and never touch host-native APIs (`window.prompt`, `localStorage`, `@tauri-apps/plugin-*`, …) directly. Each host provides its own implementation — reference factories: `createWebPlatform()` (`examples/demo/src/webPlatform.ts`) and `createTauriPlatform()` (`examples/tauri/src/tauriPlatform.ts`).
 
 Capability is expressed by slice / method presence — callers guard with `?.`:
 
@@ -334,10 +334,10 @@ Capability is expressed by slice / method presence — callers guard with `?.`:
 
 ## Framework-Agnostic Usage
 
-The `@acp-components/core` package has zero React dependency. You can use it with any framework:
+The `@hafbit/acp-components-core` package has zero React dependency. You can use it with any framework:
 
 ```ts
-import { acpStore, sessionStore, fileTreeStore, fileViewerStore, skillStore, createAcpProvider, sendPrompt } from '@acp-components/core';
+import { acpStore, sessionStore, fileTreeStore, fileViewerStore, skillStore, createAcpProvider, sendPrompt } from '@hafbit/acp-components-core';
 
 // 1. Create multi-agent provider. `stdioFactory` is the host spawn capability
 //    (e.g. a child-process transport). Pass `null` on a host that cannot spawn.
@@ -380,8 +380,8 @@ provider.destroy();
 
 ### Prerequisites
 
-- Node.js >= 18
-- pnpm
+- Node.js >= 22
+- pnpm 11
 - An ACP-compatible agent (e.g., [opencode](https://github.com/anthropics/opencode) with `acp` subcommand)
 
 ### Setup
@@ -403,6 +403,14 @@ pnpm test
 # Lint
 pnpm lint
 ```
+
+### Publishing
+
+The `latest` branch is the downstream release line. Version tags publish both
+packages with a matching npm dist-tag: `vX.Y.Z-alpha.N` uses `alpha`,
+`vX.Y.Z-beta.N` uses `beta`, and `vX.Y.Z` uses `latest`. See the
+[publishing guide](docs/PUBLISHING.md) for the one-time npm setup and release
+commands.
 
 ### Web Demo
 
@@ -454,7 +462,7 @@ pnpm build:tauri    # Production build
 Implement the `AcpTransport` interface to add any communication layer:
 
 ```ts
-import type { AcpTransport, Stream } from '@acp-components/core';
+import type { AcpTransport, Stream } from '@hafbit/acp-components-core';
 
 class MyCustomTransport implements AcpTransport {
   async connect(): Promise<Stream> { /* ... */ }

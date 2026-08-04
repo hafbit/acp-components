@@ -1,6 +1,6 @@
 import React from 'react';
 import { SessionList } from '../session-list';
-import type { SessionMeta } from '@acp-components/core';
+import type { SessionMeta } from '@hafbit/acp-components-core';
 import { SettingsMenu } from '../settings-menu/SettingsMenu';
 import { useI18n } from '../../i18n';
 import styles from './sidebar.module.scss';

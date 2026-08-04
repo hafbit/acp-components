@@ -9,7 +9,7 @@ import type {
   FileTreeWatcher,
   StdioTransportOptions,
   AcpTransport,
-} from '@acp-components/core';
+} from '@hafbit/acp-components-core';
 
 /**
  * Auto-updater handle. Hosts that ship a native updater (e.g. Tauri's updater

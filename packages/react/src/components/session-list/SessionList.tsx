@@ -1,15 +1,15 @@
 import { useCallback, useMemo, useRef, useState } from 'react';
 import { CloseOutlined, DeleteOutlined, ForkOutlined, MessageOutlined, FolderOutlined, FolderOpenOutlined, MoreOutlined, PlusOutlined } from '@ant-design/icons';
 import { useStore } from 'zustand/react';
-import { sessionStore, acpStore } from '@acp-components/core';
+import { sessionStore, acpStore } from '@hafbit/acp-components-core';
 import { useSessions } from '../../hooks/useSessions';
 import { useAcpStore } from '../../hooks/useAcpStore';
 import { useWorkspaces } from '../../hooks/useWorkspaces';
 import { usePlatform } from '../../context/PlatformContext';
 import { useI18n } from '../../i18n';
 import { Dropdown } from '../dropdown';
-import type { SessionMeta, WorkspaceState } from '@acp-components/core';
-import type { SessionId } from '@acp-components/core';
+import type { SessionMeta, WorkspaceState } from '@hafbit/acp-components-core';
+import type { SessionId } from '@hafbit/acp-components-core';
 import { getAgentName } from '../../utils/agentName';
 import { SESSION_DRAG_MIME } from '../../constants';
 import styles from './session-list.module.scss';

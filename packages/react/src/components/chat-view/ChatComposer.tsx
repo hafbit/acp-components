@@ -7,7 +7,7 @@ import {
   ArrowUpOutlined,
   InboxOutlined,
 } from '@ant-design/icons';
-import type { ContentBlock, AvailableCommand, PromptCapabilities } from '@acp-components/core';
+import type { ContentBlock, AvailableCommand, PromptCapabilities } from '@hafbit/acp-components-core';
 import { CommandPalette } from '../command-palette';
 import { useI18n } from '../../i18n';
 import styles from './chat-composer.module.scss';

@@ -173,7 +173,7 @@ export interface FileTreeWatcher {
 
 // ---------------------------------------------------------------------------
 // Platform abstraction — atomic types consumed by the react-layer `Platform`
-// interface (defined in `@acp-components/react`). core itself does not depend
+// interface (defined in `@hafbit/acp-components-react`). core itself does not depend
 // on React nor implement `Platform`; it only owns the shared primitive types
 // so the interface and each host factory can compose them.
 // ---------------------------------------------------------------------------

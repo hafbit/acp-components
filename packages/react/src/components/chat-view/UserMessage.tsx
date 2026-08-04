@@ -1,8 +1,8 @@
 import React, { useMemo } from 'react';
 import { FileTextOutlined, LinkOutlined } from '@ant-design/icons';
-import type { Message } from '@acp-components/core';
-import type { ContentBlock } from '@acp-components/core';
-import { isUserVisibleContent } from '@acp-components/core';
+import type { Message } from '@hafbit/acp-components-core';
+import type { ContentBlock } from '@hafbit/acp-components-core';
+import { isUserVisibleContent } from '@hafbit/acp-components-core';
 import { useI18n } from '../../i18n';
 import { Markdown } from '../markdown';
 import { UserMessageActions } from './UserMessageActions';

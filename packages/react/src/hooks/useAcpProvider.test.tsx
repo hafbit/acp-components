@@ -37,8 +37,8 @@ const fakeProvider = makeFakeProvider();
 
 // Mock `createAcpProvider` to return our singleton fake; pass through `acpStore`
 // (the hook reads it via `useShallow`) and the types the hook imports.
-vi.mock('@acp-components/core', async (importActual) => {
-  const actual = await importActual<typeof import('@acp-components/core')>();
+vi.mock('@hafbit/acp-components-core', async (importActual) => {
+  const actual = await importActual<typeof import('@hafbit/acp-components-core')>();
   return {
     ...actual,
     createAcpProvider: vi.fn(() => fakeProvider),
@@ -53,7 +53,7 @@ vi.mock('../context/PlatformContext', () => ({
 
 // Import AFTER the mocks are registered.
 import { useAcpProvider } from './useAcpProvider';
-import { acpStore } from '@acp-components/core';
+import { acpStore } from '@hafbit/acp-components-core';
 
 function resetAcpStore() {
   acpStore.setState({

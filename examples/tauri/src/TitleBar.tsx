@@ -1,5 +1,5 @@
 import { Fragment, useEffect, useMemo, useState } from 'react';
-import { usePlatform, formatShortcut, type MenuAction } from '@acp-components/react';
+import { usePlatform, formatShortcut, type MenuAction } from '@hafbit/acp-components-react';
 import { getCurrentWindow } from '@tauri-apps/api/window';
 import { getMenuActions, onMenuActionsChange, triggerMenuAction } from './tauriPlatform';
 import styles from './titlebar.module.scss';

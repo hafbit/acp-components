@@ -12,10 +12,10 @@ import {
   refreshSessions as coreRefreshSessions,
   loadMoreSessions as coreLoadMoreSessions,
   acpStore,
-} from '@acp-components/core';
-import type { SessionId } from '@acp-components/core';
-import { RequestError } from '@acp-components/core';
-import type { AcpClient, SessionMeta } from '@acp-components/core';
+} from '@hafbit/acp-components-core';
+import type { SessionId } from '@hafbit/acp-components-core';
+import { RequestError } from '@hafbit/acp-components-core';
+import type { AcpClient, SessionMeta } from '@hafbit/acp-components-core';
 
 export function useSessions() {
   const { getClient } = useAcpContext();

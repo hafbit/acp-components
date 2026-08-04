@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { usePermission } from '../../hooks/usePermission';
-import type { SessionId } from '@acp-components/core';
+import type { SessionId } from '@hafbit/acp-components-core';
 import { useI18n } from '../../i18n';
 import styles from './permission-prompt.module.scss';
 

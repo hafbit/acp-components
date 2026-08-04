@@ -1,7 +1,7 @@
 import { useShallow } from 'zustand/react/shallow';
 import { useCallback } from 'react';
 import { useAcpStore } from './useAcpStore';
-import { acpStore, findWorkspaceBySession } from '@acp-components/core';
+import { acpStore, findWorkspaceBySession } from '@hafbit/acp-components-core';
 
 /**
  * React access point for workspace state — the single hook through which UI

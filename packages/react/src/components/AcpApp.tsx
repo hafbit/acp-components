@@ -4,7 +4,7 @@ import { PlatformProvider } from './platform';
 import { HotkeysProvider } from '../context/HotkeysContext';
 import { I18nProvider } from '../i18n';
 import { AcpProvider } from './workbench/AcpProvider';
-import type { AgentConfig } from '@acp-components/core';
+import type { AgentConfig } from '@hafbit/acp-components-core';
 
 // ---------------------------------------------------------------------------
 // Composite root provider. Wraps the four-provider stack that every host

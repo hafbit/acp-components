@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
-import type { SessionId } from '@acp-components/core';
+import type { SessionId } from '@hafbit/acp-components-core';
 import { useAcpStore } from '../../hooks/useAcpStore';
 import { useFileViewer } from '../../hooks/useFileViewer';
 import { useI18n } from '../../i18n';

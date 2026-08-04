@@ -1,0 +1,136 @@
+name: Publish npm packages
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: npm-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout release tag
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Verify release source
+        shell: bash
+        run: |
+          git fetch --no-tags origin latest
+          tag_commit="$(git rev-list -n 1 "$GITHUB_REF_NAME")"
+          git merge-base --is-ancestor "$tag_commit" origin/latest
+          test -z "$(git status --porcelain)"
+
+      - name: Enable pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 11.20.0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+          registry-url: https://registry.npmjs.org
+
+      - name: Use npm 11
+        run: npm install --global npm@11
+
+      - name: Validate release tag and manifests
+        id: release
+        run: pnpm release:check "$GITHUB_REF_NAME"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Test
+        run: pnpm test
+
+      - name: Build demo
+        run: pnpm --filter @acp-components/demo build
+
+      - name: Build and validate package tarballs
+        run: pnpm release:pack
+
+      - name: Upload package tarballs
+        uses: actions/upload-artifact@v4
+        with:
+          name: npm-packages-${{ steps.release.outputs.version }}
+          path: release-artifacts/*.tgz
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Publish packages
+        shell: bash
+        env:
+          VERSION: ${{ steps.release.outputs.version }}
+          DIST_TAG: ${{ steps.release.outputs.dist_tag }}
+        run: |
+          core_package='@hafbit/acp-components-core'
+          react_package='@hafbit/acp-components-react'
+          core_tarball="$(node -p "JSON.parse(require('fs').readFileSync('release-artifacts/manifest.json')).core")"
+          react_tarball="$(node -p "JSON.parse(require('fs').readFileSync('release-artifacts/manifest.json')).react")"
+
+          publish_or_verify() {
+            package_name="$1"
+            tarball="$2"
+
+            if published_version="$(npm view "${package_name}@${VERSION}" version 2>/dev/null)"; then
+              test "$published_version" = "$VERSION"
+              tagged_version="$(npm view "$package_name" "dist-tags.${DIST_TAG}")"
+              test "$tagged_version" = "$VERSION"
+              echo "${package_name}@${VERSION} already exists with dist-tag ${DIST_TAG}; skipping."
+            else
+              npm publish "$tarball" --access public --tag "$DIST_TAG" --provenance
+            fi
+          }
+
+          publish_or_verify "$core_package" "$core_tarball"
+          publish_or_verify "$react_package" "$react_tarball"
+
+      - name: Verify registry state
+        shell: bash
+        env:
+          VERSION: ${{ steps.release.outputs.version }}
+          DIST_TAG: ${{ steps.release.outputs.dist_tag }}
+        run: |
+          for package_name in '@hafbit/acp-components-core' '@hafbit/acp-components-react'; do
+            test "$(npm view "${package_name}@${VERSION}" version)" = "$VERSION"
+            test "$(npm view "$package_name" "dist-tags.${DIST_TAG}")" = "$VERSION"
+          done
+
+      - name: Smoke test published packages
+        shell: bash
+        env:
+          VERSION: ${{ steps.release.outputs.version }}
+        run: |
+          smoke_dir="$(mktemp -d)"
+          pushd "$smoke_dir"
+          npm init --yes
+          npm install --ignore-scripts \
+            "@hafbit/acp-components-core@${VERSION}" \
+            "@hafbit/acp-components-react@${VERSION}" \
+            monaco-editor@^0.52 react@^19 react-dom@^19 typescript@^5.6
+
+          node --input-type=module --eval "await import('@hafbit/acp-components-core'); await import('@hafbit/acp-components-react'); import.meta.resolve('@hafbit/acp-components-react/styles.css')"
+          node --eval "require('@hafbit/acp-components-core'); require('@hafbit/acp-components-react')"
+          printf '%s\n' \
+            "import * as core from '@hafbit/acp-components-core';" \
+            "import * as react from '@hafbit/acp-components-react';" \
+            'void core; void react;' > smoke.ts
+          popd
+
+          "$smoke_dir/node_modules/.bin/tsc" --noEmit --skipLibCheck --module NodeNext \
+            --moduleResolution NodeNext --target ES2022 "$smoke_dir/smoke.ts"

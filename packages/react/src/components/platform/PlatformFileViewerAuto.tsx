@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { fileViewerStore } from '@acp-components/core';
+import { fileViewerStore } from '@hafbit/acp-components-core';
 import { usePlatform } from '../../context/PlatformContext';
 
 /**

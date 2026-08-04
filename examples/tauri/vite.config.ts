@@ -5,8 +5,8 @@ export default defineConfig({
   root: '.',
   resolve: {
     alias: {
-      '@acp-components/core': resolve(__dirname, '../../packages/core/src/index.ts'),
-      '@acp-components/react': resolve(__dirname, '../../packages/react/src/index.ts'),
+      '@hafbit/acp-components-core': resolve(__dirname, '../../packages/core/src/index.ts'),
+      '@hafbit/acp-components-react': resolve(__dirname, '../../packages/react/src/index.ts'),
     },
   },
   // In Tauri, the dev server is accessed via the webview with a distinct host.

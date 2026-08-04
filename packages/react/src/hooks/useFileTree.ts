@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import { useStore } from 'zustand/react';
-import { fileTreeStore, loadFileTree, expandDirectory, collapseDirectory } from '@acp-components/core';
-import type { FileTreeNode } from '@acp-components/core';
+import { fileTreeStore, loadFileTree, expandDirectory, collapseDirectory } from '@hafbit/acp-components-core';
+import type { FileTreeNode } from '@hafbit/acp-components-core';
 
 export interface UseFileTreeOptions {
   cwd: string;

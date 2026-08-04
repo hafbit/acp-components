@@ -5,8 +5,8 @@ import {
   parseShortcut,
   matchShortcut,
   type ParsedShortcut,
-} from '@acp-components/core';
-import type { PlatformOS } from '@acp-components/core';
+} from '@hafbit/acp-components-core';
+import type { PlatformOS } from '@hafbit/acp-components-core';
 
 // ---------------------------------------------------------------------------
 // Module-level shortcut registry.

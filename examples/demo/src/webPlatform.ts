@@ -4,7 +4,7 @@ import type {
   FileTreeNode,
   FileTreeWatchCallbacks,
   FileTreeWatcher,
-} from '@acp-components/react';
+} from '@hafbit/acp-components-react';
 
 // ---------------------------------------------------------------------------
 // Web Platform - browser capabilities shared by local dev and GitHub Pages.

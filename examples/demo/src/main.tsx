@@ -36,8 +36,8 @@ self.MonacoEnvironment = {
   },
 };
 
-import type { AgentConfig } from '@acp-components/core';
-import { AcpApp, LoginDialog, WorkbenchShell, useAcpStore } from '@acp-components/react';
+import type { AgentConfig } from '@hafbit/acp-components-core';
+import { AcpApp, LoginDialog, WorkbenchShell, useAcpStore } from '@hafbit/acp-components-react';
 import { createWebPlatform } from './webPlatform';
 
 const isLocalDev = import.meta.env.DEV;

@@ -1,4 +1,4 @@
-import type { AcpTransport, Stream, AnyMessage } from '@acp-components/core';
+import type { AcpTransport, Stream, AnyMessage } from '@hafbit/acp-components-core';
 
 interface TauriIpcOptions {
   agentId: string;

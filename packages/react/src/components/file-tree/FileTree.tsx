@@ -5,7 +5,7 @@ import {
   FolderOpenOutlined,
   FileTextOutlined,
 } from '@ant-design/icons';
-import type { FileTreeNode } from '@acp-components/core';
+import type { FileTreeNode } from '@hafbit/acp-components-core';
 import { useI18n } from '../../i18n';
 import styles from './file-tree.module.scss';
 

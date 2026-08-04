@@ -4,8 +4,8 @@ A pnpm monorepo for Agent Client Protocol (ACP) React components and a framework
 
 ## Project Structure & Module Organization
 
-- `packages/core` (`@acp-components/core`): provider, `AcpClient`, vanilla Zustand stores (`acpStore`, `sessionStore`, `fileTreeStore`), transports (Stdio/Http/WebSocket/custom), actions, and shared types. Zero React dependency.
-- `packages/react` (`@acp-components/react`): UI layer with `components/` (each component in its own subdirectory), `context/` (`AcpContext`, `PlatformContext`), `hooks/`, `i18n/`, and `styles/`.
+- `packages/core` (`@hafbit/acp-components-core`): provider, `AcpClient`, vanilla Zustand stores (`acpStore`, `sessionStore`, `fileTreeStore`), transports (Stdio/Http/WebSocket/custom), actions, and shared types. Zero React dependency.
+- `packages/react` (`@hafbit/acp-components-react`): UI layer with `components/` (each component in its own subdirectory), `context/` (`AcpContext`, `PlatformContext`), `hooks/`, `i18n/`, and `styles/`.
 - `examples/`: `demo` (Vite web app), `server` (WebSocket-to-stdio bridge), `tauri` (desktop shell).
 - `assets/`, `design-system/`, `docs/`: shared resources and documentation.
 
@@ -16,8 +16,8 @@ Tests are co-located next to source as `*.test.ts` or `*.test.tsx`.
 ```bash
 pnpm install              # install all workspace deps
 pnpm build                # build core, then react
-pnpm build:core           # build @acp-components/core only
-pnpm build:react          # build @acp-components/react only
+pnpm build:core           # build @hafbit/acp-components-core only
+pnpm build:react          # build @hafbit/acp-components-react only
 pnpm test                 # run vitest across both packages
 pnpm lint                 # eslint packages/*/src/**/*.{ts,tsx}
 pnpm dev                  # Vite demo at localhost:5173 (run pnpm dev:server first)
@@ -28,8 +28,8 @@ pnpm dev:tauri            # Tauri desktop dev
 Run a single package or filter by test name:
 
 ```bash
-pnpm --filter @acp-components/core test
-pnpm --filter @acp-components/core test -- -t "pattern"
+pnpm --filter @hafbit/acp-components-core test
+pnpm --filter @hafbit/acp-components-core test -- -t "pattern"
 ```
 
 Each package also exposes `test:watch` for interactive vitest.

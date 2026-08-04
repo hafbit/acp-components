@@ -1,6 +1,6 @@
 import { afterEach } from 'vitest';
 import { cleanup } from '@testing-library/react';
-import { acpStore, sessionStore, fileTreeStore, fileViewerStore } from '@acp-components/core';
+import { acpStore, sessionStore, fileTreeStore, fileViewerStore } from '@hafbit/acp-components-core';
 
 /**
  * React-layer tests share the core store singletons (they are module-level

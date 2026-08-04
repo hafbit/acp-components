@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef } from 'react';
-import { acpStore } from '@acp-components/core';
-import type { PlatformStorage } from '@acp-components/core';
+import { acpStore } from '@hafbit/acp-components-core';
+import type { PlatformStorage } from '@hafbit/acp-components-core';
 import { usePlatform } from '../../context/PlatformContext';
 import { useAcpStore } from '../../hooks/useAcpStore';
 

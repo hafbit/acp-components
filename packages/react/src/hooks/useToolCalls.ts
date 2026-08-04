@@ -1,5 +1,5 @@
 import { useSessionPendingToolCalls } from './useSession';
-import type { SessionId } from '@acp-components/core';
+import type { SessionId } from '@hafbit/acp-components-core';
 
 export function useToolCalls(sessionId: SessionId | null) {
   const pendingToolCalls = useSessionPendingToolCalls(sessionId);

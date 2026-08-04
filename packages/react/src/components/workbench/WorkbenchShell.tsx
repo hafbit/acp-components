@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { AppstoreOutlined, PlusOutlined } from '@ant-design/icons';
-import type { SessionId } from '@acp-components/core';
+import type { SessionId } from '@hafbit/acp-components-core';
 import { useActions } from '../../context/HotkeysContext';
 import { Workbench } from './Workbench';
 import type { WorkbenchProps } from './Workbench';

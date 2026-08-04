@@ -6,8 +6,8 @@ import {
   closeFile,
   setActiveFile,
   clearRevealLine,
-} from '@acp-components/core';
-import type { OpenFileEntry } from '@acp-components/core';
+} from '@hafbit/acp-components-core';
+import type { OpenFileEntry } from '@hafbit/acp-components-core';
 
 export type { OpenFileEntry };
 
@@ -32,7 +32,7 @@ type FileViewerStoreState = ReturnType<typeof fileViewerStore.getState>;
 
 /**
  * Subscribe to the global file-viewer store (backed by `fileViewerStore` in
- * `@acp-components/core`). State is shared across every component that calls
+ * `@hafbit/acp-components-core`). State is shared across every component that calls
  * this hook — no props threading required.
  *
  * The content reader and host open delegate are injected automatically by

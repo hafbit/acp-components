@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import { useAcpContext } from '../context/AcpContext';
-import { callExtMethod as coreCallExtMethod, sendExtNotification as coreSendExtNotification } from '@acp-components/core';
+import { callExtMethod as coreCallExtMethod, sendExtNotification as coreSendExtNotification } from '@hafbit/acp-components-core';
 
 export function useExtensions() {
   const { getClient } = useAcpContext();

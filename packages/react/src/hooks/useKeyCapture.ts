@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { parseShortcut, type PlatformOS } from '@acp-components/core';
+import { parseShortcut, type PlatformOS } from '@hafbit/acp-components-core';
 
 // ---------------------------------------------------------------------------
 // Keyboard shortcut capture: convert a live keydown into a cross-platform

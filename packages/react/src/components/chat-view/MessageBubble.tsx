@@ -1,8 +1,8 @@
 import React from 'react';
 import { FileTextOutlined, LinkOutlined, CopyOutlined, CheckOutlined } from '@ant-design/icons';
-import type { Message, MessagePart, SessionId } from '@acp-components/core';
-import type { ContentBlock } from '@acp-components/core';
-import { sessionStore, isUserVisibleContent } from '@acp-components/core';
+import type { Message, MessagePart, SessionId } from '@hafbit/acp-components-core';
+import type { ContentBlock } from '@hafbit/acp-components-core';
+import { sessionStore, isUserVisibleContent } from '@hafbit/acp-components-core';
 import { useCopy } from '../../hooks/useCopy';
 import { useI18n } from '../../i18n';
 import { Markdown } from '../markdown';

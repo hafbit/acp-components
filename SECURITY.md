@@ -6,4 +6,4 @@ Please do not open a public issue for a suspected vulnerability. Use GitHub's pr
 
 Include the affected package and version, reproduction steps, expected impact, and any suggested mitigation. You can expect an initial acknowledgement within seven days.
 
-Only the latest published versions of `@acp-components/core` and `@acp-components/react` receive security fixes.
+Only the latest published versions of `@hafbit/acp-components-core` and `@hafbit/acp-components-react` receive security fixes.

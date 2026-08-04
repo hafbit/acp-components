@@ -9,7 +9,7 @@ import React, {
 } from 'react';
 import { useShallow } from 'zustand/react/shallow';
 import { SplitCellsOutlined, CloseOutlined } from '@ant-design/icons';
-import type { SessionId } from '@acp-components/core';
+import type { SessionId } from '@hafbit/acp-components-core';
 import { useAcpStore } from '../../hooks/useAcpStore';
 import { useSessions } from '../../hooks/useSessions';
 import { useI18n } from '../../i18n';

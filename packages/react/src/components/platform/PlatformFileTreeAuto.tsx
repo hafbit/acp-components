@@ -5,7 +5,7 @@ import {
   loadFileTree,
   refreshFileTree,
   refreshNode,
-} from '@acp-components/core';
+} from '@hafbit/acp-components-core';
 import { usePlatform } from '../../context/PlatformContext';
 
 type AcpStoreState = ReturnType<typeof acpStore.getState>;

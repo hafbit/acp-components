@@ -1,8 +1,8 @@
 import { useStore } from 'zustand/react';
 import { useShallow } from 'zustand/react/shallow';
-import { sessionStore } from '@acp-components/core';
-import type { Message, ToolCallState, PermissionRequest, QueuedMessage } from '@acp-components/core';
-import type { SessionId, PlanEntry, UsageUpdate, SessionConfigOption, AvailableCommand } from '@acp-components/core';
+import { sessionStore } from '@hafbit/acp-components-core';
+import type { Message, ToolCallState, PermissionRequest, QueuedMessage } from '@hafbit/acp-components-core';
+import type { SessionId, PlanEntry, UsageUpdate, SessionConfigOption, AvailableCommand } from '@hafbit/acp-components-core';
 
 // Module-level stable empty defaults so Object.is comparisons work when session is absent
 const EMPTY_MESSAGES: Message[] = [];

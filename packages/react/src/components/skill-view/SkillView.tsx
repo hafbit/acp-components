@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { useShallow } from 'zustand/react/shallow';
 import { ThunderboltOutlined, SearchOutlined } from '@ant-design/icons';
-import type { Skill as CoreSkill } from '@acp-components/core';
+import type { Skill as CoreSkill } from '@hafbit/acp-components-core';
 import { useAcpContext } from '../../context/AcpContext';
 import { useAcpStore } from '../../hooks/useAcpStore';
 import { useSkills } from '../../hooks/useSkills';
@@ -14,7 +14,7 @@ import styles from './skill-view.module.scss';
 
 /**
  * A skill fetched from a connected agent. The pure data shape lives in
- * `@acp-components/core` (`Skill`); the react layer extends it with an
+ * `@hafbit/acp-components-core` (`Skill`); the react layer extends it with an
  * optional rendered `icon` node.
  *
  * The catalog is read from the global `skillStore` via `useSkills()` and is

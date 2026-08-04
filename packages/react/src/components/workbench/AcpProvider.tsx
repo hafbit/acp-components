@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { AcpContext } from '../../context/AcpContext';
 import { SettingsContext } from '../../context/SettingsContext';
 import { useAcpProvider } from '../../hooks/useAcpProvider';
-import type { AgentConfig } from '@acp-components/core';
+import type { AgentConfig } from '@hafbit/acp-components-core';
 import { usePlatform } from '../../context/PlatformContext';
 import { loadAgents, saveAgents } from '../../utils/agentStorage';
 import { useI18n } from '../../i18n';

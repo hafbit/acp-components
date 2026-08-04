@@ -1,6 +1,6 @@
 {
-  "name": "@acp-components/core",
-  "version": "0.1.0",
+  "name": "@hafbit/acp-components-core",
+  "version": "0.1.0-alpha.0",
   "description": "Framework-agnostic core for the Agent Client Protocol — multi-agent provider, per-session stores, transports, and imperative actions.",
   "keywords": [
     "agent-client-protocol",
@@ -16,12 +16,16 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zvzuola/acp-components.git",
+    "url": "git+https://github.com/hafbit/acp-components.git",
     "directory": "packages/core"
   },
-  "homepage": "https://github.com/zvzuola/acp-components#readme",
+  "homepage": "https://github.com/hafbit/acp-components#readme",
   "bugs": {
-    "url": "https://github.com/zvzuola/acp-components/issues"
+    "url": "https://github.com/hafbit/acp-components/issues"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
   "type": "module",
   "main": "./dist/index.cjs",
@@ -29,9 +33,9 @@
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs",
-      "types": "./dist/index.d.ts"
+      "require": "./dist/index.cjs"
     }
   },
   "files": [

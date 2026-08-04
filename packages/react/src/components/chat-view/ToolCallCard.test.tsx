@@ -1,7 +1,7 @@
 import React from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
-import type { ToolCallState } from '@acp-components/core';
+import type { ToolCallState } from '@hafbit/acp-components-core';
 import { ToolCallCard } from './ToolCallCard';
 
 const toolCall: ToolCallState = {

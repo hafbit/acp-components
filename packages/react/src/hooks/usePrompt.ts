@@ -1,7 +1,7 @@
 import { useCallback, useMemo } from 'react';
 import { useAcpContext } from '../context/AcpContext';
-import { queuePrompt, cancelPrompt, acpStore } from '@acp-components/core';
-import type { SessionId, ContentBlock, PromptResponse } from '@acp-components/core';
+import { queuePrompt, cancelPrompt, acpStore } from '@hafbit/acp-components-core';
+import type { SessionId, ContentBlock, PromptResponse } from '@hafbit/acp-components-core';
 
 export function usePrompt(sessionId: SessionId | null): {
   send: (contentBlocks: ContentBlock[]) => Promise<PromptResponse | undefined>;

@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import { useSessionPendingPermissions } from './useSession';
-import { respondToPermission, denyPermission } from '@acp-components/core';
-import type { SessionId } from '@acp-components/core';
+import { respondToPermission, denyPermission } from '@hafbit/acp-components-core';
+import type { SessionId } from '@hafbit/acp-components-core';
 
 export function usePermission(sessionId: SessionId | null) {
   const pendingPermissions = useSessionPendingPermissions(sessionId);

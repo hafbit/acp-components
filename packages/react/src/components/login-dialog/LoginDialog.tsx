@@ -1,9 +1,9 @@
 import React, { useState, useCallback, useRef } from 'react';
-import type { AuthMethodEnvVar, AuthMethod } from '@acp-components/core';
+import type { AuthMethodEnvVar, AuthMethod } from '@hafbit/acp-components-core';
 import { useAcpStore } from '../../hooks/useAcpStore';
 import { useAcpContext } from '../../context/AcpContext';
-import { authenticate as coreAuthenticate, acpStore } from '@acp-components/core';
-import { authenticateWithEnv } from '@acp-components/core';
+import { authenticate as coreAuthenticate, acpStore } from '@hafbit/acp-components-core';
+import { authenticateWithEnv } from '@hafbit/acp-components-core';
 import { useI18n } from '../../i18n';
 import styles from './login-dialog.module.scss';
 

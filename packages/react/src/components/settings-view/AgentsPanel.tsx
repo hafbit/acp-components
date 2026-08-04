@@ -1,6 +1,6 @@
 import React, { useCallback, useMemo, useState } from 'react';
 import { DeleteOutlined, PlusOutlined, RobotOutlined } from '@ant-design/icons';
-import type { AgentConfig, AgentConnection, TransportConfig } from '@acp-components/core';
+import type { AgentConfig, AgentConnection, TransportConfig } from '@hafbit/acp-components-core';
 import { useI18n } from '../../i18n';
 import { usePlatform } from '../../context/PlatformContext';
 import { useAcpContext } from '../../context/AcpContext';

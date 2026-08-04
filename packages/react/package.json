@@ -1,6 +1,6 @@
 {
-  "name": "@acp-components/react",
-  "version": "0.1.0",
+  "name": "@hafbit/acp-components-react",
+  "version": "0.1.0-alpha.0",
   "description": "React UI components for the Agent Client Protocol — chat, file tree, diff viewer, dialogs, and a composable workbench shell.",
   "keywords": [
     "agent-client-protocol",
@@ -18,12 +18,16 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zvzuola/acp-components.git",
+    "url": "git+https://github.com/hafbit/acp-components.git",
     "directory": "packages/react"
   },
-  "homepage": "https://github.com/zvzuola/acp-components#readme",
+  "homepage": "https://github.com/hafbit/acp-components#readme",
   "bugs": {
-    "url": "https://github.com/zvzuola/acp-components/issues"
+    "url": "https://github.com/hafbit/acp-components/issues"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
   "type": "module",
   "main": "./dist/index.cjs",
@@ -34,9 +38,9 @@
   ],
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs",
-      "types": "./dist/index.d.ts"
+      "require": "./dist/index.cjs"
     },
     "./styles.css": "./dist/react.css"
   },
@@ -50,7 +54,7 @@
     "test:watch": "vitest"
   },
   "dependencies": {
-    "@acp-components/core": "workspace:*",
+    "@hafbit/acp-components-core": "workspace:*",
     "@ant-design/icons": "^6.2.5",
     "i18next": "^26.1.0",
     "react-i18next": "^17.0.7",

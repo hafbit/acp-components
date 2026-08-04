@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { RobotOutlined } from '@ant-design/icons';
-import { sendPrompt, setSessionConfigOption } from '@acp-components/core';
-import type { ContentBlock, PromptCapabilities, SessionId, SessionConfigOption, SessionConfigSelectOptions, SessionConfigSelectGroup } from '@acp-components/core';
+import { sendPrompt, setSessionConfigOption } from '@hafbit/acp-components-core';
+import type { ContentBlock, PromptCapabilities, SessionId, SessionConfigOption, SessionConfigSelectOptions, SessionConfigSelectGroup } from '@hafbit/acp-components-core';
 import { useAcpContext } from '../../context/AcpContext';
 import { usePlatform } from '../../context/PlatformContext';
 import { useAcpStore } from '../../hooks/useAcpStore';

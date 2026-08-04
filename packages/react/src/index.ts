@@ -148,7 +148,7 @@ export type {
   UpdaterStatus,
   PlatformKind,
   PlatformOS,
-} from '@acp-components/core';
+} from '@hafbit/acp-components-core';
 export {
   parseShortcut,
   matchShortcut,
@@ -156,8 +156,8 @@ export {
   formatShortcut,
   primaryModifier,
   usesMeta,
-} from '@acp-components/core';
-export type { ShortcutKeyEvent, ParsedShortcut } from '@acp-components/core';
+} from '@hafbit/acp-components-core';
+export type { ShortcutKeyEvent, ParsedShortcut } from '@hafbit/acp-components-core';
 
 // i18n
 export { I18nProvider, useI18n } from './i18n';

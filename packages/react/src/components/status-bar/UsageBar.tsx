@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSessionUsage } from '../../hooks/useSession';
-import type { SessionId } from '@acp-components/core';
+import type { SessionId } from '@hafbit/acp-components-core';
 import { useI18n } from '../../i18n';
 import styles from './usage-bar.module.scss';
 

@@ -1,4 +1,4 @@
-import type { Implementation } from '@acp-components/core';
+import type { Implementation } from '@hafbit/acp-components-core';
 
 /**
  * Display name for an agent — prefer the human-readable `agentInfo.title`

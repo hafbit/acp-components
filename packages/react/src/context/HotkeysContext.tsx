@@ -10,7 +10,7 @@ import React, {
 } from 'react';
 import { usePlatform, type MenuAction } from '../context/PlatformContext';
 import { useHotkeys, type HotkeyBinding, type UseHotkeyOptions } from '../hooks/useHotkey';
-import { formatShortcut } from '@acp-components/core';
+import { formatShortcut } from '@hafbit/acp-components-core';
 
 // ---------------------------------------------------------------------------
 // Action registry context.
