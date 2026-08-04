@@ -65,7 +65,7 @@ jobs:
         run: pnpm release:pack
 
       - name: Upload package tarballs
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: npm-packages-${{ steps.release.outputs.version }}
           path: release-artifacts/*.tgz
@@ -108,10 +108,28 @@ jobs:
           VERSION: ${{ steps.release.outputs.version }}
           DIST_TAG: ${{ steps.release.outputs.dist_tag }}
         run: |
-          for package_name in '@hafbit/acp-components-core' '@hafbit/acp-components-react'; do
-            test "$(npm view "${package_name}@${VERSION}" version)" = "$VERSION"
-            test "$(npm view "$package_name" "dist-tags.${DIST_TAG}")" = "$VERSION"
-          done
+          verify_package() {
+            package_name="$1"
+
+            for attempt in {1..12}; do
+              published_version="$(npm view "${package_name}@${VERSION}" version 2>/dev/null || true)"
+              tagged_version="$(npm view "$package_name" "dist-tags.${DIST_TAG}" 2>/dev/null || true)"
+
+              if test "$published_version" = "$VERSION" && test "$tagged_version" = "$VERSION"; then
+                echo "Verified ${package_name}@${VERSION} with dist-tag ${DIST_TAG}."
+                return 0
+              fi
+
+              echo "Registry has not converged for ${package_name}@${VERSION} (attempt ${attempt}/12); retrying in 10 seconds."
+              sleep 10
+            done
+
+            echo "Registry verification timed out for ${package_name}@${VERSION}." >&2
+            return 1
+          }
+
+          verify_package '@hafbit/acp-components-core'
+          verify_package '@hafbit/acp-components-react'
 
       - name: Smoke test published packages
         shell: bash
