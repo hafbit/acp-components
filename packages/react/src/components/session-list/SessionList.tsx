@@ -26,6 +26,10 @@ function getWorkspaceName(cwd: string): string {
   return parts[parts.length - 1] || cwd;
 }
 
+function getErrorMessage(error: unknown): string {
+  return error instanceof Error ? error.message : String(error);
+}
+
 function useSessionStatus(sessionId: SessionId): SessionStatusType {
   const ref = useRef<SessionStatusType>(null);
   const status = useStore(sessionStore, (s) => {
@@ -89,6 +93,8 @@ function SessionItem({ session, isActive, onSelect, agentName, agentStatus, show
   const supportsFork = useAcpStore((s) => !!s.agents.get(session.agentId)?.capabilities?.sessionCapabilities?.fork);
   const supportsDelete = useAcpStore((s) => !!s.agents.get(session.agentId)?.capabilities?.sessionCapabilities?.delete);
   const [isForking, setIsForking] = useState(false);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [deleteError, setDeleteError] = useState<string | null>(null);
 
   // Tracks an active native drag so the source row can dim, signalling where
   // the session is being dragged from. Cleared in onDragEnd (fires on drop,
@@ -144,6 +150,11 @@ function SessionItem({ session, isActive, onSelect, agentName, agentStatus, show
           )}
           <span className={styles.acpSessionItemTime}>{formatTime(session.updatedAt)}</span>
         </div>
+        {deleteError && (
+          <div className={styles.acpSessionItemError} role="alert">
+            {t('sessionList.deleteError', { message: deleteError })}
+          </div>
+        )}
       </div>
       {supportsFork && (
         <button
@@ -171,7 +182,22 @@ function SessionItem({ session, isActive, onSelect, agentName, agentStatus, show
       {supportsDelete && (
         <button
           className={styles.acpSessionItemDelete}
-          onClick={(e) => { e.stopPropagation(); void deleteSession(session.id); }}
+          onClick={async (e) => {
+            e.stopPropagation();
+            if (isDeleting) return;
+            setDeleteError(null);
+            setIsDeleting(true);
+            try {
+              await deleteSession(session.id);
+            } catch (error) {
+              const message = getErrorMessage(error);
+              setDeleteError(message);
+              console.error('Failed to delete session:', error);
+            } finally {
+              setIsDeleting(false);
+            }
+          }}
+          disabled={isDeleting}
           aria-label={t('sessionList.deleteSession')}
           title={t('sessionList.deleteSession')}
         >

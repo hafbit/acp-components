@@ -66,6 +66,7 @@
   'sessionList.title': '工作区',
   'sessionList.newSession': '新建会话',
   'sessionList.deleteSession': '删除会话',
+  'sessionList.deleteError': '归档会话失败，请重试：{{message}}',
   'sessionList.forkSession': '复刻会话',
   'sessionList.defaultSessionTitle': '新会话',
   'sessionList.loadMore': '加载更多',
