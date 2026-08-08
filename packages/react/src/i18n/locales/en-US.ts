@@ -66,6 +66,7 @@ export const enUS = {
   'sessionList.title': 'Workspaces',
   'sessionList.newSession': 'New session',
   'sessionList.deleteSession': 'Delete session',
+  'sessionList.deleteError': 'Could not archive session. Try again: {{message}}',
   'sessionList.forkSession': 'Fork session',
   'sessionList.defaultSessionTitle': 'New Session',
   'sessionList.loadMore': 'Load more',
